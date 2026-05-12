@@ -1,46 +1,65 @@
-# TaskFlow
+# Team Task Manager (TaskFlow)
 
-## Render + Vercel + MongoDB Atlas Deployment
+Simple full-stack app where users create projects, assign tasks, and track progress with project-level roles.
 
-This repo has two services:
-- Backend (Node/Express)
-- Frontend (Vite/React)
+## Live Demo
+
+https://team-task-manager-drab-chi.vercel.app
+
+## Features
+
+- Authentication (signup/login)
+- Project & team management
+- Task creation, assignment, and status tracking
+- Dashboard with task summary (status + overdue)
+- Role-based access control per project (Admin/Member)
+
+## Tech Stack
+
+- Frontend: React + Vite
+- Backend: Node.js + Express
+- Database: MongoDB Atlas
+
+## Local Setup
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+Create a `.env` in `backend/`:
+
+```
+MONGO_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_secret
+FRONTEND_URL=http://localhost:5173
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Optional: set `VITE_API_URL` in `frontend/.env` for custom API base.
+
+## Deployment (Render + Vercel)
 
 ### Backend (Render)
 
-**Service root:** `backend`
-
-**Environment variables:**
-- `MONGO_URI` = your MongoDB Atlas connection string
-- `JWT_SECRET` = strong secret string
-- `FRONTEND_URL` = your Vercel frontend URL (comma-separated if multiple)
-- `PORT` = optional (Render sets this)
-
-**Commands:**
+- Root: `backend`
 - Build: `npm install`
 - Start: `npm start`
+- Env: `MONGO_URI`, `JWT_SECRET`, `FRONTEND_URL`
 
 ### Frontend (Vercel)
 
-**Service root:** `frontend`
-
-**Environment variables:**
-- `VITE_API_URL` = `https://<your-render-backend>.onrender.com/api`
-
-**Build command:** `npm install` then `npm run build`
-
-**Output directory:** `dist`
-
-### Local Dev
-
-**Backend**
-- `cd backend`
-- `npm install`
-- `npm run dev`
-
-**Frontend**
-- `cd frontend`
-- `npm install`
-- `npm run dev`
-
-The frontend uses `VITE_API_URL` if set; otherwise it calls `/api`.
+- Root: `frontend`
+- Build: `npm install && npm run build`
+- Output: `dist`
+- Env: `VITE_API_URL=https://<your-render-backend>.onrender.com/api`

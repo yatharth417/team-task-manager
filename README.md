@@ -1,35 +1,35 @@
 # TaskFlow
 
-## Railway Deployment
+## Render + Vercel + MongoDB Atlas Deployment
 
 This repo has two services:
 - Backend (Node/Express)
 - Frontend (Vite/React)
 
-### Backend (Railway)
+### Backend (Render)
 
 **Service root:** `backend`
 
 **Environment variables:**
-- `MONGO_URI` = your MongoDB connection string
+- `MONGO_URI` = your MongoDB Atlas connection string
 - `JWT_SECRET` = strong secret string
-- `FRONTEND_URL` = your frontend Railway URL (comma-separated if multiple)
-- `PORT` = optional (Railway sets this)
+- `FRONTEND_URL` = your Vercel frontend URL (comma-separated if multiple)
+- `PORT` = optional (Render sets this)
 
 **Commands:**
 - Build: `npm install`
 - Start: `npm start`
 
-### Frontend (Railway)
+### Frontend (Vercel)
 
 **Service root:** `frontend`
 
 **Environment variables:**
-- `VITE_API_URL` = `https://<your-backend>.up.railway.app/api`
+- `VITE_API_URL` = `https://<your-render-backend>.onrender.com/api`
 
-**Commands:**
-- Build: `npm install` then `npm run build`
-- Start: `npx serve -s dist -l $PORT`
+**Build command:** `npm install` then `npm run build`
+
+**Output directory:** `dist`
 
 ### Local Dev
 
